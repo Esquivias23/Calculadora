@@ -8,6 +8,8 @@ import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import java.lang.Math;
+
 import javax.swing.JButton;
 import javax.swing.JButton;
 
@@ -53,10 +55,11 @@ public class Calculadora extends JFrame {
 	 */
 	public Calculadora() {
 		super();
-		setSize(250, 300);
+		setSize(500, 700);
 		setTitle("Calculadora Simple");
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setResizable(false);
+                
 
 		// Vamos a dibujar sobre el panel
 		JPanel panel = (JPanel) this.getContentPane();
@@ -91,7 +94,12 @@ public class Calculadora extends JFrame {
 		nuevoBotonOperacion("*");
 		nuevoBotonOperacion("/");
 		nuevoBotonOperacion("=");
-		nuevoBotonOperacion("CE");
+                nuevoBotonOperacion("raiz");
+                nuevoBotonOperacion("Rint");
+                nuevoBotonOperacion("sin");
+                nuevoBotonOperacion("cos");
+                nuevoBotonOperacion("tan");
+                nuevoBotonOperacion("CE");
 
 		panel.add("East", panelOperaciones);
 
@@ -192,7 +200,17 @@ public class Calculadora extends JFrame {
 			resultado /= new Double(pantalla.getText());
 		} else if (operacion.equals("*")) {
 			resultado *= new Double(pantalla.getText());
-		}
+		}else if (operacion.equals("raiz")) {
+			resultado = Math.sqrt(new Double(pantalla.getText()));
+		} else if (operacion.equals("Rint")) {
+			resultado = Math.rint(new Double(pantalla.getText()));
+		} else if (operacion.equals("sin")) {
+			resultado = Math.sin(new Double(pantalla.getText()));
+		} else if (operacion.equals("cos")) {
+			resultado = Math.cos(new Double(pantalla.getText()));
+		} else if (operacion.equals("tan")) {
+			resultado = Math.tan(new Double(pantalla.getText()));
+		} 
 
 		pantalla.setText("" + resultado);
 		operacion = "";
