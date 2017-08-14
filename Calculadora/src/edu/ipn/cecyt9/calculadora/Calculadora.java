@@ -73,6 +73,7 @@ public class Calculadora extends JFrame {
 		pantalla.setBackground(Color.WHITE);
 		panel.add("North", pantalla);
 
+                
 		panelNumeros = new JPanel();
 		panelNumeros.setLayout(new GridLayout(4, 3));
 		panelNumeros.setBorder(new EmptyBorder(4, 4, 4, 4));
